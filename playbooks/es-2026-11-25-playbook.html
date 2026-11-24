@@ -1,0 +1,429 @@
+<title>ES Nov 25 Playbook</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root {
+  --bg: #eef1f5; --panel: #ffffff; --panel-2: #f6f8fb; --fg: #16202c; --muted: #5a6778;
+  --line: #d6dde6; --line-strong: #9aa7b6; --short: #c7362f; --long: #16834d; --gamma: #6c46d6;
+  --pivot: #b26d0c; --info: #2470b8; --pill-ink: #ffffff;
+  --display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d141d; --panel: #141d29; --panel-2: #18232f; --fg: #e1e7ee; --muted: #8b99aa;
+    --line: #253243; --line-strong: #4b5b6e; --short: #f2645c; --long: #45c486; --gamma: #a98cff;
+    --pivot: #eba845; --info: #62aef5; --pill-ink: #0d141d; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d141d; --panel: #141d29; --panel-2: #18232f; --fg: #e1e7ee; --muted: #8b99aa;
+  --line: #253243; --line-strong: #4b5b6e; --short: #f2645c; --long: #45c486; --gamma: #a98cff;
+  --pivot: #eba845; --info: #62aef5; --pill-ink: #0d141d; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 14px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 24px 40px;
+}
+.wrap { max-width: 1240px; margin: 0 auto; display: grid; gap: 20px; }
+header { display: grid; gap: 14px; }
+.eyebrow { font-family: var(--mono); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.runtime { display: inline-block; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .08em; padding: 2px 8px; border-radius: 4px; border: 1px solid var(--info); color: var(--info); justify-self: start; }
+h1 { font-family: var(--display); font-weight: 700; font-size: clamp(34px, 6vw, 56px); line-height: .95; margin: 0; letter-spacing: .01em; text-wrap: balance; }
+h1 .dn { color: var(--short); }
+.thesis { font-size: 16px; max-width: 72ch; margin: 0; }
+.thesis b { font-weight: 600; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { display: inline-flex; align-items: baseline; gap: 8px; padding: 6px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--panel); font-family: var(--mono); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+.chip span { color: var(--muted); font-size: 11px; letter-spacing: .05em; text-transform: uppercase; }
+.chip.short b { color: var(--short); } .chip.pivot b { color: var(--pivot); } .chip.gamma b { color: var(--gamma); } .chip.long b { color: var(--long); }
+h2 { font-family: var(--display); font-weight: 700; font-size: 24px; letter-spacing: .02em; margin: 0; text-transform: uppercase; }
+.sub { color: var(--muted); font-size: 13px; margin: 2px 0 0; }
+.main { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+@media (max-width: 960px) { .main { grid-template-columns: minmax(0, 1fr); } }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 18px; display: grid; gap: 14px; min-width: 0; }
+.ladder-scroll { overflow-x: auto; }
+#ladder { width: 100%; min-width: 600px; height: auto; display: block; }
+#ladder text { font-variant-numeric: tabular-nums; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12px; color: var(--muted); }
+.legend i { display: inline-block; width: 18px; height: 10px; border-radius: 2px; vertical-align: -1px; margin-right: 6px; }
+.flow { display: grid; gap: 10px; }
+.open-node { justify-self: start; font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 6px 10px; border-radius: 6px; background: var(--fg); color: var(--bg); }
+.branches { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 560px) { .branches { grid-template-columns: minmax(0, 1fr); } }
+.br { border: 1px solid var(--line); border-top: 3px solid var(--c); border-radius: 8px; padding: 10px 12px; background: var(--panel-2); display: grid; gap: 6px; align-content: start; min-width: 0; }
+.br .when { font-family: var(--mono); font-size: 11.5px; color: var(--muted); }
+.br .name { font-family: var(--display); font-size: 21px; font-weight: 700; line-height: 1; color: var(--c); }
+.br p { margin: 0; font-size: 13px; }
+.br .live { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.tag { display: inline-block; font-family: var(--mono); font-size: 10.5px; font-weight: 600; padding: 1px 6px; border-radius: 4px; background: var(--c); color: var(--pill-ink); letter-spacing: .04em; vertical-align: 2px; }
+.followon { border: 1px dashed var(--line-strong); border-radius: 8px; padding: 10px 12px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 12px; align-items: baseline; }
+.followon .k { font-family: var(--display); font-weight: 700; font-size: 19px; }
+.followon p { margin: 0; font-size: 13px; }
+.setups { display: grid; gap: 8px; }
+.setup { display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 12px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel-2); }
+.grade { font-family: var(--display); font-weight: 700; font-size: 26px; line-height: 1; color: var(--c); text-align: center; padding-top: 2px; }
+.grade small { display: block; font-family: var(--mono); font-size: 9.5px; font-weight: 600; letter-spacing: .08em; margin-top: 4px; }
+.setup h3 { margin: 0; font-size: 14px; font-weight: 600; }
+.setup .why { margin: 2px 0 6px; font-size: 12.5px; color: var(--muted); }
+.nums { display: grid; grid-template-columns: repeat(4, auto); justify-content: start; gap: 2px 18px; font-family: var(--mono); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+.nums span { color: var(--muted); font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; }
+@media (max-width: 480px) { .nums { grid-template-columns: repeat(2, auto); } }
+.agree { margin: 0; font-size: 14px; }
+.agree b { font-family: var(--mono); font-weight: 600; font-size: 13px; }
+.sources { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px; }
+.src { border: 1px solid var(--line); border-left: 3px solid var(--c, var(--gamma)); border-radius: 8px; padding: 10px 12px; background: var(--panel-2); display: grid; gap: 6px; align-content: start; min-width: 0; }
+.src h3 { margin: 0; font-family: var(--display); font-size: 19px; font-weight: 700; letter-spacing: .02em; }
+.src .asof { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.src dl { margin: 0; display: grid; grid-template-columns: 62px minmax(0, 1fr); gap: 3px 10px; font-size: 12.5px; }
+.src dt { font-family: var(--mono); font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding-top: 1px; }
+.src dd { margin: 0; font-variant-numeric: tabular-nums; }
+.src .warn { color: var(--pivot); font-weight: 600; }
+.rules { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+@media (max-width: 860px) { .rules { grid-template-columns: minmax(0, 1fr); } }
+.rules h3 { font-family: var(--display); font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; margin: 0 0 6px; }
+.rules ul { margin: 0; padding-left: 18px; display: grid; gap: 5px; font-size: 13.5px; }
+.rules b { font-family: var(--mono); font-weight: 600; font-size: 12.5px; }
+footer { color: var(--muted); font-size: 12px; display: grid; gap: 4px; }
+footer a { color: var(--info); }
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="runtime">Run Tue Nov 24, 4:01 PM ET · on-demand from the VATS app</span>
+    <div class="eyebrow">ES1! · Wed Nov 25, 2026 · from the app's strings: TLADe, TanukiTrade, XposureFlow and the 30-minute RTH profile · checked against Dalton</div>
+    <h1>ES Nov 25 Playbook: <span class="dn">sell rallies below 7241</span></h1>
+    <p class="thesis">Monday's short-covering rally (Friday low 6898 to 7313) did happen, so Dalton's "very negative" case is off for now. But Tuesday couldn't hold Monday's value. It opened below Monday's VAL, stayed inside an 88.5-point IB (7152.25–7240.75) with no range extension either way, and built value entirely below Monday's (VAH 7226, POC 7194, VAL 7180). That's a Normal day and the start of a short-term balance, 7152–7241, after the trend down. The M period squeezed from 7184 to close at 7220, in the upper third and right at VAH, so Wednesday opens at the edge of value. Spot is 66 points under zero gamma 7283 and below Tanuki's HVL 7310, net GEX is −1.44B, and TLADe's flow reads "cap reinforcing, floor eroding." <b>Lean bearish below 7221, where the TLADe magnet, the flow anchor, Tanuki P4 and Tuesday's VAH stack. Two 30-minute closes above 7226, Tuesday's late high, mean change is under way. The bear case is off after two 30-minute closes above 7241, which puts price back in Monday's value.</b></p>
+    <div class="chips">
+      <div class="chip"><span>Tue close</span><b>7220</b></div>
+      <div class="chip pivot"><span>Pivot</span><b>7221</b></div>
+      <div class="chip pivot"><span>Change</span><b>7226</b></div>
+      <div class="chip short"><span>Invalidation</span><b>7241</b></div>
+      <div class="chip gamma"><span>Zero gamma</span><b>7283</b></div>
+      <div class="chip gamma"><span>HVL</span><b>7310</b></div>
+      <div class="chip long"><span>Support</span><b>7152–7175 · 7085–7097</b></div>
+      <div class="chip"><span>Weekly EM</span><b>7085–7372</b></div>
+    </div>
+  </header>
+
+  <div class="main">
+    <section class="panel" aria-labelledby="ladder-h">
+      <div>
+        <h2 id="ladder-h">Level ladder</h2>
+        <p class="sub">To scale, 7060–7400. Thicker lines mark levels where three or more sources agree.</p>
+      </div>
+      <div class="ladder-scroll">
+        <svg id="ladder" viewBox="0 0 680 900" role="img" aria-label="ES price ladder from 7060 to 7400 showing TLADe wall sizes, setup zones, no-trade zones, the 7221 pivot, the 7226 change line, the 7241 invalidation and Tuesday's 7220 close"></svg>
+      </div>
+      <div class="legend">
+        <span><i style="background:color-mix(in srgb, var(--short) 40%, transparent); border:1px solid var(--short)"></i>Short zone</span>
+        <span><i style="background:color-mix(in srgb, var(--long) 40%, transparent); border:1px solid var(--long)"></i>Long zone</span>
+        <span><i style="background:var(--gamma)"></i>TLADe wall (length = size)</span>
+        <span><i style="background:repeating-linear-gradient(135deg, var(--line-strong) 0 2px, transparent 2px 6px)"></i>No-trade</span>
+        <span><i style="background:var(--pivot); height:3px"></i>Pivot / change / invalidation</span>
+      </div>
+    </section>
+
+    <div style="display:grid; gap:20px; min-width:0">
+      <section class="panel" aria-labelledby="flow-h">
+        <div>
+          <h2 id="flow-h">At 9:30, where does it open?</h2>
+          <p class="sub">Scenarios update on 30-minute period closes. The Scenario Map indicator tracks them live. Wednesday's overnight hasn't started yet, so inventory is unknown until a pre-open run reads Globex. PCE is out at 8:30.</p>
+        </div>
+        <div class="flow">
+          <div class="open-node">9:30 ET open</div>
+          <div class="branches">
+            <div class="br" style="--c: var(--short)">
+              <div class="when">below 7152.25 (Tuesday low)</div>
+              <div class="name">A · Balance breaks lower</div>
+              <p>The two-day balance fails, and so does the put cluster at 7155–7175 that TLADe says is eroding. Sell 7144–7152 retests for 7112, then 7085–7097. Don't buy the first touch; a long needs a failed break.</p>
+              <div class="live">live: B (7152 break), B failed-break long, A on a squeeze to 7240</div>
+            </div>
+            <div class="br" style="--c: var(--info)">
+              <div class="when">7152 – 7226 (likely: about 7220)</div>
+              <div class="name">C · Inside Tue value</div>
+              <p>Opening at VAH, at the TLADe magnet. Let the first 30 minutes show acceptance or rejection of 7226. Skip the 7180–7210 middle. The sell is a rally that fails at 7236–7244.</p>
+              <div class="live">live: A (7240), B (7152 failed break)</div>
+            </div>
+            <div class="br" style="--c: var(--pivot)">
+              <div class="when">above 7226 (Tuesday VAH)</div>
+              <div class="name">X · Above VAH</div>
+              <p>Tuesday's value is rejected higher. Sell only a rejection at 7236–7244, Monday's VAL. If it gets accepted above 7241, Monday's value 7240–7282 is back in play.</p>
+              <div class="live">live: A (7240), B− long above 7241</div>
+            </div>
+          </div>
+          <div class="followon">
+            <span class="k" style="color:var(--long)">A → B</span>
+            <p>Two 30-minute closes back above 7152 after a break: the auction failed below the put cluster. Buy 7150–7158 on a 5-minute close back inside, for 7180 and 7194. <span class="tag" style="--c: var(--long)">B</span></p>
+            <span class="k" style="color:var(--pivot)">Any → change</span>
+            <p>Two 30-minute closes above 7226, Tuesday's M-period high: change under way. Half-size shorts, only on a rejection at 7236–7244.</p>
+            <span class="k" style="color:var(--pivot)">Any → off</span>
+            <p>Two 30-minute closes above 7241: stand aside on shorts. Buy 7242–7250 retests for 7260 (Monday's POC) and 7283 (zero gamma). The only sell above is a 7278–7288 zero-gamma rejection.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="setups-h">
+        <div>
+          <h2 id="setups-h">Setups</h2>
+          <p class="sub">Ranked by how many independent signals line up at each level. R = reward ÷ risk from the zone's middle. Every stop sits beyond the zone and at least 13 points from its middle. RTH EM is about 192, so size down. PCE plus thin pre-holiday trade means half size.</p>
+        </div>
+        <div class="setups">
+          <div class="setup" style="--c: var(--short)">
+            <div class="grade">A<small>SHORT</small></div>
+            <div>
+              <h3>7240 Mon VAL / Tue high rejection</h3>
+              <p class="why">Monday's VAL 7240, Tuesday's IB and day high 7240.75 (B and G both stalled there), and TLADe's largest unloading strike at 7231 (−$134M). It sits below zero gamma and HVL. Sell a rally that stalls in the zone.</p>
+              <div class="nums"><span>Entry</span><span>Stop</span><span>Targets</span><span>R</span><b>7236–7244</b><b>7254</b><b>7221 · 7194 · 7172</b><b>1.4 / 3.3 / 4.9</b></div>
+            </div>
+          </div>
+          <div class="setup" style="--c: var(--short)">
+            <div class="grade">B<small>SHORT</small></div>
+            <div>
+              <h3>7152 balance-low break</h3>
+              <p class="why">Tuesday's low and the bottom of the two-day balance. TLADe calls the floor eroding. Below it are Tuesday's ON low 7144.75, XposureFlow's gVWAP lower band 7112, then its CEX/VEX zero lines at 7091–7097 with Tanuki P1 7085 (weight −100) and the weekly EM low. Take it only on a retest from below.</p>
+              <div class="nums"><span>Entry</span><span>Stop</span><span>Targets</span><span>R</span><b>7144–7152</b><b>7162</b><b>7112 · 7091</b><b>2.6 / 4.1</b></div>
+            </div>
+          </div>
+          <div class="setup" style="--c: var(--long)">
+            <div class="grade">B<small>LONG</small></div>
+            <div>
+              <h3>7155 failed-break long</h3>
+              <p class="why">The strongest support cluster: TLADe put wall 7171 ($358M), XposureFlow GW2 7170, Tanuki P2 7155, pT 7160, Ab3 7165, P3 7175, plus Monday's low 7167 and Tuesday's 7152. Price is below HVL, so there are no first-touch longs. Wait for a break under 7152, then a 5-minute close back above 7155.</p>
+              <div class="nums"><span>Entry</span><span>Stop</span><span>Targets</span><span>R</span><b>7150–7158</b><b>7140</b><b>7180 · 7194 · 7221</b><b>1.9 / 2.9 / 4.8</b></div>
+            </div>
+          </div>
+          <div class="setup" style="--c: var(--short)">
+            <div class="grade">B<small>SHORT</small></div>
+            <div>
+              <h3>7283 zero-gamma rejection</h3>
+              <p class="why">TLADe zero gamma 7283, Monday's VAH 7282 and late high 7284, and Tanuki P5 7290. It sits above the invalidation line, so trade it only as a clear rejection after the bear case is off.</p>
+              <div class="nums"><span>Entry</span><span>Stop</span><span>Targets</span><span>R</span><b>7278–7288</b><b>7299</b><b>7260 · 7241</b><b>1.4 / 2.6</b></div>
+            </div>
+          </div>
+          <div class="setup" style="--c: var(--long)">
+            <div class="grade">B−<small>LONG</small></div>
+            <div>
+              <h3>7246 Mon VAL reclaim retest</h3>
+              <p class="why">Only after two 30-minute closes above 7241. Back inside Monday's value, the target is its POC 7260 (XposureFlow gVWAP 7259.5, TLADe put wall 7251), then zero gamma 7283. T1 pays less than 1R, so scale out at T2.</p>
+              <div class="nums"><span>Entry</span><span>Stop</span><span>Targets</span><span>R</span><b>7242–7250</b><b>7230</b><b>7260 · 7283</b><b>0.9 / 2.3</b></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <section class="panel" aria-labelledby="src-h">
+    <div>
+      <h2 id="src-h">What each source says</h2>
+      <p class="sub">Read from the app's source strings at 4:01 PM ET Tuesday. Nothing here was looked up separately.</p>
+    </div>
+    <p class="agree">The sources agree on <b>7155–7175</b> as the floor (TLADe, Tanuki, XposureFlow and both prior lows) and <b>7310–7325</b> as the call cap (TLADe $559M, XposureFlow GW1, Tanuki C1/C4/HVL). Spot 7216 sits between them, below zero gamma and HVL, so dealers are short gamma and moves extend. XposureFlow reads spot above all its nearby flips, but its 0DTE EM (±177) looks too wide for a pre-holiday day.</p>
+    <div class="sources">
+      <div class="src" style="--c: var(--gamma)">
+        <h3>TLADe</h3>
+        <div class="asof warn">Updated Tue 13:00 ET: STALE (3 h old) · spot 7216 at 16:01</div>
+        <dl>
+          <dt>Regime</dt><dd>Confirmed negative gamma, net GEX −1.44B, 66 pts below zero gamma 7283</dd>
+          <dt>Delta</dt><dd>Negative, puts 89% · delta flip 7344</dd>
+          <dt>Vol</dt><dd>Compression · VIX 26.5 · RTH EM 192 · RTH realized 46% of expected</dd>
+          <dt>Walls</dt><dd>7371 C ($560M), 7321 C ($559M), 7171 P ($358M), 7411 P ($189M), 7386 P ($182M), 7251 P ($106M)</dd>
+          <dt>Flow</dt><dd>Cap reinforcing, floor eroding · anchor 7216 · 7231 unloading −$134M</dd>
+          <dt>Greeks</dt><dd>Vanna: vol support · charm: price pressure · magnet 7221</dd>
+        </dl>
+      </div>
+      <div class="src" style="--c: var(--info)">
+        <h3>XposureFlow</h3>
+        <div class="asof">16:01 ET · Wed 0DTE book · OI from Nov 23</div>
+        <dl>
+          <dt>Walls</dt><dd>#1 7320.25, #2 7170, #3 7365.5 · gVWAP 7259.5 (band 7112–7407)</dd>
+          <dt>Zero</dt><dd>CEX 7091.5 · VEX 7097 below · VEX 7397 · CEX 7420 above</dd>
+          <dt>Range</dt><dd>Weekly EM 7085–7372 · Wed 0DTE EM 7052–7405</dd>
+          <dt>Note</dt><dd class="warn">0DTE IV 46.7% looks inflated (it carries the PCE print); use the weekly EM</dd>
+        </dl>
+      </div>
+      <div class="src" style="--c: var(--pivot)">
+        <h3>TanukiTrade</h3>
+        <div class="asof">Tue 15:59 snapshot · Nov 25 expiry · spot 7215.5</div>
+        <dl>
+          <dt>Regime</dt><dd>Below HVL 7310: negative gamma, no first-touch support longs</dd>
+          <dt>Puts</dt><dd>P1 7085 (−100), P2 7155, P3 7175, P4 7215, P5 7290, P6 7190 · pT 7160</dd>
+          <dt>Calls</dt><dd>C1 7325 (89.9), C4 7315, C2 7360, C3 7365 · cT 7325</dd>
+          <dt>Other</dt><dd>Ab1 7315 · Ab2 7265 · Ab3 7165 · COI/CV 7315 · D+ 7015</dd>
+        </dl>
+      </div>
+      <div class="src" style="--c: var(--long)">
+        <h3>Market profile</h3>
+        <div class="asof">TradingView 30-min RTH · Tue Nov 24 (complete)</div>
+        <dl>
+          <dt>Day</dt><dd>Normal · range 88.5 = IB · no range extension · RF −4 · D shape</dd>
+          <dt>Open</dt><dd>OTD up from 7182.75, below Mon VA but inside Mon range · ON was balanced 7145–7298</dd>
+          <dt>Value</dt><dd>VAH 7226 · POC 7194 · VAL 7180 · lower than Mon (7240–7282), no overlap</dd>
+          <dt>Ends</dt><dd>Minimal excess both ends (2-tick tails) · M squeeze 7184→7226 on heavy volume, close 7220</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel rules" aria-label="Rules">
+    <div>
+      <h3>Before the open</h3>
+      <ul>
+        <li>This run was before Wednesday's Globex session. A pre-open run should add overnight inventory; until then ONH/ONL on the chart are placeholders.</li>
+        <li>PCE at 8:30 and a thin pre-Thanksgiving tape. Dalton flagged both. Expect a fast first hour and size down.</li>
+        <li>Note where 9:30 opens: below <b>7152</b>, inside, or above <b>7226</b>. Tuesday closed at 7220, right at VAH.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>During the session</h3>
+      <ul>
+        <li>Fast arrival: <b>14+ pts</b> in the 30 minutes before a zone means wait for a 5-minute close back inside it.</li>
+        <li>IB under <b>45 pts</b>: trade smaller, expect rotation inside 7152–7241. Tuesday's IB was 88.5.</li>
+        <li>Below HVL 7310, no support longs on the first touch.</li>
+        <li>Skip the middle: <b>7180–7210</b> (Tuesday's POC area) and <b>7253–7275</b> (Monday's POC area).</li>
+        <li>Two 30-minute closes above <b>7226</b>: cut short size.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Volatility</h3>
+      <ul>
+        <li>Vol is compressing (TLADe RTH realized 46% of expected), but negative gamma means a break of the balance can run.</li>
+        <li>Two 30-minute closes above <b>7241</b>: stand aside on shorts.</li>
+        <li>Nov 25 options expire, but no strike shows a clear pin, so no pin levels. Weekly options expire Fri Nov 27, a half day; the market is closed Thursday.</li>
+      </ul>
+    </div>
+  </section>
+
+  
+<section id="vats-plan" style="max-width:1200px;margin:24px auto;padding:16px;border:1px solid #2a3a2e;
+  border-radius:8px;background:#0a160d;color:#3dff7a;font:13px/1.5 Consolas,ui-monospace,monospace">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:8px">
+    <b style="font-size:15px">Scenario Map plan string</b>
+    <button type="button" onclick="navigator.clipboard.writeText(document.getElementById('vats-plan-text').textContent)
+      .then(()=>{this.textContent='Copied'; setTimeout(()=>this.textContent='Copy',1500)})"
+      style="background:#3dff7a;color:#050c07;border:0;border-radius:4px;padding:6px 14px;font:inherit;font-weight:700;cursor:pointer">Copy</button>
+  </div>
+  <pre id="vats-plan-text" style="margin:0;white-space:pre-wrap;word-break:break-all;user-select:all">D,2026-11-25;P,VAH,7226;P,VAL,7180;P,POC,7194;P,PLOW,7152.25;P,PIVOT,7221;P,CHANGE,7226;P,INVAL,7241;P,SETTLE,7220;P,ZG,7283;P,NARROWIB,45;P,FAST,14;P,BIAS,-1;P,ONH,7220;P,ONL,7220;P,ONPCT,50;L,TL call wall 7371 $560M / max pain 7371 / XF weekly EM high 7372 / TK C2 7360 C3 7365 / XF GW3 7365.5,7368,4;L,TL delta flip 7344,7344,1;L,TL call wall 7321 $559M / TL VBH 7321 / XF GW1 7320 / TK C1 7325 C4 Ab1 7315 / TK HVL 7310,7318,4;L,TL zero gamma 7283 / Mon VAH 7282 / Mon late high 7284 / TK P5 7290,7284,3;L,Mon POC 7260 / XF gVWAP 7259.5 / TK Ab2 7265 / TL put wall 7251 $106M,7258,3;L,INVAL Tue high 7240.75 / Mon VAL 7240 / TL unload 7231,7240,3;L,PIVOT TL magnet 7221 / TL anchor 7216 / TK P4 7215 / Tue VAH 7226 / close 7220,7221,4;L,Tue POC 7194 / TK P6 7190,7192,2;L,Tue VAL 7180,7180,1;L,TL put wall 7171 $358M / XF GW2 7170 / TK P3 7175 Ab3 7165 pT 7160 / Mon low 7167,7170,4;L,Tue low 7152.25 / TK P2 7155 / TL 7161 supp,7155,3;L,Tue ON low 7144.75,7145,1;L,XF gVWAP lower band 7112,7112,1;L,XF CEX 7091.5 VEX 7097 / TK P1 7085 / XF weekly EM low 7085,7090,3;W,7371,0.560;W,7321,0.559;W,7171,0.358;W,7411,0.189;W,7386,0.182;W,7251,0.106;W,7356,0.094;N,No-trade: Tue value middle,7180,7210;N,No-trade: Mon POC middle,7253,7275;S,7240 Mon VAL/Tue high rejection,S,7236,7244,7254,7221,7194,7172,A,CX;S,7152 balance-low break,S,7144,7152,7162,7112,7091,,B,A;S,7155 failed-break long,L,7150,7158,7140,7180,7194,7221,B,AB;S,7283 ZG rejection,S,7278,7288,7299,7260,7241,,B,I;S,7246 Mon VAL reclaim retest,L,7242,7250,7230,7260,7283,,B-,I;T,A,Below 7152 Tue low: the 2-day balance breaks and the put floor erodes. Sell 7144-7152 retests for 7112 then 7091. Long only on a failed break;T,B,Back above 7152 after an A break: failed auction at the put cluster. Buy 7150-7158 on a 5m close back inside for 7180 then 7194;T,C,Inside Tue value 7152-7226 below HVL. Skip the 7180-7210 middle. Sell 7236-7244 rejections. Long only a failed break of 7152;T,X,Above 7226 VAH: Tue value rejected higher. Sell only 7236-7244 rejections. Two 30m closes above 7241 put price back in Mon value;T,W,Two 30m closes above 7226 (Tue late high): change under way. Half-size shorts only at 7236-7244. Skip the 7180-7210 middle;T,I,Two 30m closes above 7241: bear case off. Buy 7242-7250 retests for 7260 then 7283. Sell only a 7278-7288 ZG rejection;T,PRE,16:01 run for Wed: ON not started. TL1 13:00 stale. Tue balanced 7152-7241 and closed 7220 at VAH. PCE 8:30 and pre-holiday: half size</pre>
+  <div style="margin-top:8px;color:#1f9e4a">Paste into the Scenario Map indicator's "Plan string" input.</div>
+</section>
+<footer>
+    <div>Sources: the ES Level Updater's strings, read Tue Nov 24 4:01 PM ET: TL1 (TLADe terminal, updated 13:00 ET, stale), TK1 (TanukiTrade key levels, 15:59 snapshot, Nov 25 expiry), XF1 (XposureFlow summary, 16:01, OI Nov 23), MP1 (TradingView 30-minute RTH profiles for Nov 23 and Nov 24, plus the last 30 sessions), weekly context for the week of Nov 23.</div>
+    <div>Same logic as the ES Nov 24 Playbook. Grades count agreeing signals; they are not measured win rates. Educational analysis, not personalized financial advice.</div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  const svg = document.getElementById('ladder');
+  const NS = 'http://www.w3.org/2000/svg';
+  const TOP = 30, HI = 7400, LO = 7060, K = 2.5;
+  const y = p => TOP + (HI - p) * K;
+  const AX = 84, WALL_X = 92, WALL_MAX = 108, SET_X = 210, SET_W = 200, LINE_END = 416, LBL_X = 424;
+  function el(tag, attrs, text) {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (text != null) e.textContent = text;
+    svg.appendChild(e);
+    return e;
+  }
+  const defs = el('defs', {});
+  const pat = document.createElementNS(NS, 'pattern');
+  pat.setAttribute('id', 'hatch'); pat.setAttribute('width', '6'); pat.setAttribute('height', '6');
+  pat.setAttribute('patternUnits', 'userSpaceOnUse'); pat.setAttribute('patternTransform', 'rotate(45)');
+  const pl = document.createElementNS(NS, 'line');
+  pl.setAttribute('x1', '0'); pl.setAttribute('y1', '0'); pl.setAttribute('x2', '0'); pl.setAttribute('y2', '6');
+  pl.setAttribute('style', 'stroke: var(--line-strong); stroke-width: 1.5');
+  pat.appendChild(pl); defs.appendChild(pat);
+
+  for (let p = 7100; p <= 7400; p += 50) {
+    el('line', { x1: AX - 4, x2: AX, y1: y(p), y2: y(p), style: 'stroke: var(--line-strong)' });
+    el('text', { x: AX - 8, y: y(p) + 3.5, 'text-anchor': 'end', style: 'fill: var(--muted); font: 10px var(--mono)' }, p);
+  }
+  el('line', { x1: AX, x2: AX, y1: TOP - 10, y2: y(LO) + 6, style: 'stroke: var(--line-strong); stroke-width: 1.5' });
+  [['TLADE WALLS', WALL_X], ['SETUP ZONES', SET_X], ['LEVELS', LBL_X]].forEach(([t, x]) =>
+    el('text', { x, y: 14, style: 'fill: var(--muted); font: 600 9.5px var(--mono); letter-spacing: .08em' }, t));
+
+  [[7253, 7275], [7180, 7210]].forEach(([a, b]) => {
+    el('rect', { x: WALL_X, y: y(b), width: SET_X + SET_W - WALL_X, height: y(a) - y(b), fill: 'url(#hatch)', style: 'opacity: .55' });
+    el('text', { x: SET_X + SET_W - 4, y: y((a + b) / 2) + 3, 'text-anchor': 'end', style: 'fill: var(--muted); font: 600 9px var(--mono); letter-spacing: .08em' }, 'NO-TRADE');
+  });
+
+  const levels = [
+    [7368, 'Wall 7371 · max pain · weekly EM high · C2/C3 · GW3', 3],
+    [7344, 'TLADe delta flip', 1],
+    [7318, 'Wall 7321 · GW1 · C1 7325 · C4/Ab1 7315 · HVL 7310', 3],
+    [7284, 'Zero gamma 7283 · Mon VAH 7282 · P5 7290', 3],
+    [7258, 'Mon POC 7260 · gVWAP 7259.5 · Ab2 7265 · wall 7251', 3],
+    [7240, 'Tue high 7240.75 · Mon VAL · 7231 unload', 3],
+    [7221, 'Magnet 7221 · anchor 7216 · P4 · Tue VAH 7226', 3],
+    [7192, 'Tue POC 7194 · P6 7190', 2],
+    [7180, 'Tue VAL', 1],
+    [7170, 'Wall 7171 · GW2 · P3 · Ab3 · pT · Mon low 7167', 3],
+    [7155, 'Tue low 7152.25 · P2 7155', 3],
+    [7145, 'Tue ON low 7144.75', 1],
+    [7112, 'XF gVWAP lower band', 1],
+    [7090, 'XF CEX 7091.5 / VEX 7097 · P1 7085 · weekly EM low', 3]
+  ];
+  levels.forEach(([p, name, w]) => {
+    el('line', { x1: AX, x2: LINE_END, y1: y(p), y2: y(p),
+      style: `stroke: ${w === 3 ? 'var(--fg)' : 'var(--line-strong)'}; stroke-width: ${w === 3 ? 1.4 : 1}; opacity: ${w === 3 ? .75 : w === 2 ? .7 : .45}` + (w === 1 ? '; stroke-dasharray: 2 3' : '') });
+    const t = el('text', { x: LBL_X, y: y(p) + 3.5, style: 'fill: var(--fg); font: 11px var(--body)' });
+    const a = document.createElementNS(NS, 'tspan');
+    a.setAttribute('style', `font: ${w === 3 ? 600 : 500} 11px var(--mono)`);
+    a.textContent = String(p) + '  ';
+    const b = document.createElementNS(NS, 'tspan');
+    b.setAttribute('style', `fill: ${w === 3 ? 'var(--fg)' : 'var(--muted)'}`);
+    b.textContent = name;
+    t.appendChild(a); t.appendChild(b);
+  });
+
+  const walls = [[7386, .182], [7371, .560], [7356, .094], [7321, .559], [7251, .106], [7171, .358]];
+  walls.forEach(([p, w]) => el('rect', { x: WALL_X, y: y(p) - 3.5, width: WALL_MAX * w / .560, height: 7, rx: 2, style: 'fill: var(--gamma); opacity: .85' }));
+
+  const setups = [
+    [7278, 7288, 'short', .2, 'B ▼ 7283 ZG rejection · stop 7299'],
+    [7242, 7250, 'long', .18, 'B− ▲ 7246 reclaim · stop 7230'],
+    [7236, 7244, 'short', .38, 'A ▼ 7240 rejection · stop 7254'],
+    [7150, 7158, 'long', .26, 'B ▲ 7155 failed break · stop 7140'],
+    [7144, 7152, 'short', .26, 'B ▼ 7152 break · stop 7162']
+  ];
+  setups.forEach(([lo, hi, dir, op, label], i) => {
+    const c = dir === 'long' ? 'var(--long)' : 'var(--short)';
+    const half = (i === 1 || i === 3) ? 1 : 0;
+    const x = SET_X + (half ? SET_W / 2 : 0), w = (i === 1 || i === 2 || i === 3 || i === 4) ? SET_W / 2 : SET_W;
+    const xx = (i === 2 || i === 4) ? SET_X : x;
+    el('rect', { x: xx, y: y(hi), width: w, height: y(lo) - y(hi), rx: 2, style: `fill: ${c}; fill-opacity: ${op}; stroke: ${c}; stroke-width: 1` });
+    const ly = (i === 1 || i === 3) ? y(hi) - 4 : (i === 2 || i === 4) ? y(lo) + 11 : y((lo + hi) / 2) + 3.5;
+    el('text', { x: (i === 1 || i === 3) ? SET_X + SET_W / 2 + 2 : SET_X + 4, y: ly, style: `fill: ${c}; font: 600 9.5px var(--body)` }, label);
+  });
+
+  function special(p, color, dash, pill, width, dy) {
+    el('line', { x1: AX, x2: LINE_END, y1: y(p), y2: y(p), style: `stroke: ${color}; stroke-width: ${width}` + (dash ? '; stroke-dasharray: 6 4' : '') });
+    el('rect', { x: 2, y: y(p) - 8 + dy, width: 74, height: 16, rx: 3, style: `fill: ${color}` });
+    el('text', { x: 39, y: y(p) + 3.5 + dy, 'text-anchor': 'middle', style: 'fill: var(--pill-ink); font: 600 9.5px var(--mono); letter-spacing: .03em' }, pill);
+  }
+  special(7241, 'var(--pivot)', true, 'INVAL 7241', 2, -4);
+  special(7226, 'var(--pivot)', true, 'CHANGE 7226', 1.5, -6);
+  special(7221, 'var(--pivot)', false, 'PIVOT 7221', 2, 12);
+
+  const LP = 7220;
+  el('line', { x1: AX, x2: LINE_END, y1: y(LP), y2: y(LP), style: 'stroke: var(--info); stroke-width: 1.2; stroke-dasharray: 1 3' });
+  el('rect', { x: 2, y: y(LP) + 22, width: 74, height: 16, rx: 3, style: 'fill: var(--info)' });
+  el('text', { x: 39, y: y(LP) + 33.5, 'text-anchor': 'middle', style: 'fill: var(--pill-ink); font: 600 9.5px var(--mono)' }, 'CLOSE 7220');
+  el('path', { d: `M ${AX - 1} ${y(LP) - 5} L ${AX + 7} ${y(LP)} L ${AX - 1} ${y(LP) + 5} Z`, style: 'fill: var(--info)' });
+
+  const shade = el('rect', { x: AX + 1, y: y(7221), width: 4, height: y(LO) - y(7221), style: 'fill: var(--short); opacity: .55' });
+  el('rect', { x: AX + 1, y: y(7226), width: 4, height: y(7221) - y(7226), style: 'fill: var(--short); opacity: .25' });
+  el('rect', { x: AX + 1, y: y(7241), width: 4, height: y(7226) - y(7241), style: 'fill: var(--pivot); opacity: .45' });
+  el('rect', { x: AX + 1, y: TOP - 10, width: 4, height: y(7241) - TOP + 10, style: 'fill: var(--long); opacity: .45' });
+  svg.insertBefore(shade, svg.children[1]);
+})();
+</script>
