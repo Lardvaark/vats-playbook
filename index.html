@@ -1,4 +1,4 @@
-<title>ES Nov 24 Playbook</title>
+<title>ES Nov 25 Playbook</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +35,7 @@ body {
 .wrap { max-width: 1240px; margin: 0 auto; display: grid; gap: 20px; }
 header { display: grid; gap: 14px; }
 .eyebrow { font-family: var(--mono); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
-.run { display: inline-block; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .08em; padding: 2px 8px; border-radius: 4px; border: 1px solid var(--info); color: var(--info); justify-self: start; }
+.runtime { display: inline-block; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .08em; padding: 2px 8px; border-radius: 4px; border: 1px solid var(--info); color: var(--info); justify-self: start; }
 h1 { font-family: var(--display); font-weight: 700; font-size: clamp(34px, 6vw, 56px); line-height: .95; margin: 0; letter-spacing: .01em; text-wrap: balance; }
 h1 .dn { color: var(--short); }
 .thesis { font-size: 16px; max-width: 72ch; margin: 0; }
@@ -59,7 +59,6 @@ h2 { font-family: var(--display); font-weight: 700; font-size: 24px; letter-spac
 .branches { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
 @media (max-width: 560px) { .branches { grid-template-columns: minmax(0, 1fr); } }
 .br { border: 1px solid var(--line); border-top: 3px solid var(--c); border-radius: 8px; padding: 10px 12px; background: var(--panel-2); display: grid; gap: 6px; align-content: start; min-width: 0; }
-.br.here { outline: 2px solid var(--c); outline-offset: 1px; }
 .br .when { font-family: var(--mono); font-size: 11.5px; color: var(--muted); }
 .br .name { font-family: var(--display); font-size: 21px; font-weight: 700; line-height: 1; color: var(--c); }
 .br p { margin: 0; font-size: 13px; }
@@ -70,7 +69,6 @@ h2 { font-family: var(--display); font-weight: 700; font-size: 24px; letter-spac
 .followon p { margin: 0; font-size: 13px; }
 .setups { display: grid; gap: 8px; }
 .setup { display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 12px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel-2); }
-.setup.done { opacity: .6; }
 .grade { font-family: var(--display); font-weight: 700; font-size: 26px; line-height: 1; color: var(--c); text-align: center; padding-top: 2px; }
 .grade small { display: block; font-family: var(--mono); font-size: 9.5px; font-weight: 600; letter-spacing: .08em; margin-top: 4px; }
 .setup h3 { margin: 0; font-size: 14px; font-weight: 600; }
@@ -99,20 +97,19 @@ footer a { color: var(--info); }
 
 <div class="wrap">
   <header>
-    <span class="run">RUN · Tue Nov 24, 11:49 AM ET · TK1/XF1/MP1 11:49 ET · TL1 10:30 ET (stale) · session under way (E period)</span>
-    <div class="eyebrow">ES1! · Tue Nov 24, 2026 · from the app's strings: TLADe, TanukiTrade, XposureFlow and the 30-minute RTH profile · checked against Dalton</div>
-    <h1>ES Nov 24 Playbook: <span class="dn">sell rallies below 7220</span></h1>
-    <p class="thesis">Monday was the short-covering rally Dalton asked for: a Normal day from 7167 to 7313 with value higher (POC 7260). Today gave it back. The open was below Monday's value, and A probed 7152, under Monday's low, before driving to 7235 and leaving a 17-point buying tail. B tagged Monday's VAL at 7240.75 and was sold back to 7169. That is responsive selling at the prior value edge. Then C, D and E each probed the put cluster (lows 7160.25, 7154.25, 7159.75) and held, with E making a higher low and rallying to 7194.75. The IB (7152.25–7240.75, 88.5 points) is intact with no range extension. Value is building lower (7160–7206, POC 7194) in a D-shaped balance, and price is back in the IB middle. Price is about 90 points under TLADe's zero gamma (7283) and Tanuki's HVL (7285). As of 10:30, TLADe had net GEX at −2.6B and puts at 94% of delta. Dell reports after the close and PCE is tomorrow, so expect the afternoon to rotate inside the IB. <b>Bearish below the 7220 pivot (XF GW1, TLADe magnet, Tanuki Ab1, Monday's tail top). Sell rallies into 7216–7244. The 7152–7171 put cluster is the floor and has now held three times. A break of 7144 would extend lower. Two 30-minute closes above 7284, Monday's late high, mean change is under way. The bear case is off after two 30-minute closes above 7314.</b></p>
+    <span class="runtime">Run Tue Nov 24, 4:01 PM ET · on-demand from the VATS app</span>
+    <div class="eyebrow">ES1! · Wed Nov 25, 2026 · from the app's strings: TLADe, TanukiTrade, XposureFlow and the 30-minute RTH profile · checked against Dalton</div>
+    <h1>ES Nov 25 Playbook: <span class="dn">sell rallies below 7241</span></h1>
+    <p class="thesis">Monday's short-covering rally (Friday low 6898 to 7313) did happen, so Dalton's "very negative" case is off for now. But Tuesday couldn't hold Monday's value. It opened below Monday's VAL, stayed inside an 88.5-point IB (7152.25–7240.75) with no range extension either way, and built value entirely below Monday's (VAH 7226, POC 7194, VAL 7180). That's a Normal day and the start of a short-term balance, 7152–7241, after the trend down. The M period squeezed from 7184 to close at 7220, in the upper third and right at VAH, so Wednesday opens at the edge of value. Spot is 66 points under zero gamma 7283 and below Tanuki's HVL 7310, net GEX is −1.44B, and TLADe's flow reads "cap reinforcing, floor eroding." <b>Lean bearish below 7221, where the TLADe magnet, the flow anchor, Tanuki P4 and Tuesday's VAH stack. Two 30-minute closes above 7226, Tuesday's late high, mean change is under way. The bear case is off after two 30-minute closes above 7241, which puts price back in Monday's value.</b></p>
     <div class="chips">
-      <div class="chip"><span>Last</span><b>7193.5</b><span>11:49</span></div>
-      <div class="chip"><span>Settle</span><b>7257</b></div>
-      <div class="chip pivot"><span>Pivot</span><b>7220</b></div>
-      <div class="chip pivot"><span>Change</span><b>7284</b></div>
-      <div class="chip short"><span>Invalidation</span><b>7314</b></div>
-      <div class="chip gamma"><span>Zero gamma / HVL</span><b>7283 / 7285</b></div>
-      <div class="chip long"><span>Support</span><b>7152–7171 · 7144</b></div>
-      <div class="chip"><span>IB</span><b>7152.25–7240.75</b></div>
-      <div class="chip"><span>0DTE EM</span><b>7140–7374</b></div>
+      <div class="chip"><span>Tue close</span><b>7220</b></div>
+      <div class="chip pivot"><span>Pivot</span><b>7221</b></div>
+      <div class="chip pivot"><span>Change</span><b>7226</b></div>
+      <div class="chip short"><span>Invalidation</span><b>7241</b></div>
+      <div class="chip gamma"><span>Zero gamma</span><b>7283</b></div>
+      <div class="chip gamma"><span>HVL</span><b>7310</b></div>
+      <div class="chip long"><span>Support</span><b>7152–7175 · 7085–7097</b></div>
+      <div class="chip"><span>Weekly EM</span><b>7085–7372</b></div>
     </div>
   </header>
 
@@ -120,10 +117,10 @@ footer a { color: var(--info); }
     <section class="panel" aria-labelledby="ladder-h">
       <div>
         <h2 id="ladder-h">Level ladder</h2>
-        <p class="sub">To scale, 7100–7380. Thicker lines mark levels where three or more sources agree.</p>
+        <p class="sub">To scale, 7060–7400. Thicker lines mark levels where three or more sources agree.</p>
       </div>
       <div class="ladder-scroll">
-        <svg id="ladder" viewBox="0 0 680 890" role="img" aria-label="ES price ladder from 7100 to 7380 showing TLADe wall sizes, setup zones, no-trade zones, the 7220 pivot, the 7284 change line, the 7314 invalidation and the last price 7193.5"></svg>
+        <svg id="ladder" viewBox="0 0 680 900" role="img" aria-label="ES price ladder from 7060 to 7400 showing TLADe wall sizes, setup zones, no-trade zones, the 7221 pivot, the 7226 change line, the 7241 invalidation and Tuesday's 7220 close"></svg>
       </div>
       <div class="legend">
         <span><i style="background:color-mix(in srgb, var(--short) 40%, transparent); border:1px solid var(--short)"></i>Short zone</span>
@@ -137,38 +134,38 @@ footer a { color: var(--info); }
     <div style="display:grid; gap:20px; min-width:0">
       <section class="panel" aria-labelledby="flow-h">
         <div>
-          <h2 id="flow-h">At 11:49, where is it trading?</h2>
-          <p class="sub">The session is under way: the open was 7182.75, below Monday's value and inside its range. C, D and E have balanced in the lower half of the IB. Scenarios update on 30-minute period closes. The Scenario Map indicator tracks them live.</p>
+          <h2 id="flow-h">At 9:30, where does it open?</h2>
+          <p class="sub">Scenarios update on 30-minute period closes. The Scenario Map indicator tracks them live. Wednesday's overnight hasn't started yet, so inventory is unknown until a pre-open run reads Globex. PCE is out at 8:30.</p>
         </div>
         <div class="flow">
-          <div class="open-node">Now: E · 7193.5</div>
+          <div class="open-node">9:30 ET open</div>
           <div class="branches">
             <div class="br" style="--c: var(--short)">
-              <div class="when">below 7167 (Monday low)</div>
-              <div class="name">A · Below range</div>
-              <p>A, C, D and E have all been rejected at 7152–7160. Repeated tests wear a level down, so a break through 7144 (ON low, below today's low) is a late-day range extension down in negative gamma: sell 7140–7148 for 7121 then 7096. Long only on a failed break back above 7150.</p>
-              <div class="live">live: A (7144 break), B− (7145 failed break)</div>
+              <div class="when">below 7152.25 (Tuesday low)</div>
+              <div class="name">A · Balance breaks lower</div>
+              <p>The two-day balance fails, and so does the put cluster at 7155–7175 that TLADe says is eroding. Sell 7144–7152 retests for 7112, then 7085–7097. Don't buy the first touch; a long needs a failed break.</p>
+              <div class="live">live: B (7152 break), B failed-break long, A on a squeeze to 7240</div>
             </div>
-            <div class="br here" style="--c: var(--info)">
-              <div class="when">7167 – 7282 (now 7193.5)</div>
-              <div class="name">C · Inside the range</div>
-              <p>Below Monday's VAL, and B already rejected it. Price is back at today's POC 7194, in the IB middle. Sell rallies into 7216–7226 and 7234–7244. Buy 7158–7168 only on another higher low. Skip 7178–7212.</p>
-              <div class="live">live: A (7240 retest), B (7221), B (7163 higher low)</div>
+            <div class="br" style="--c: var(--info)">
+              <div class="when">7152 – 7226 (likely: about 7220)</div>
+              <div class="name">C · Inside Tue value</div>
+              <p>Opening at VAH, at the TLADe magnet. Let the first 30 minutes show acceptance or rejection of 7226. Skip the 7180–7210 middle. The sell is a rally that fails at 7236–7244.</p>
+              <div class="live">live: A (7240), B (7152 failed break)</div>
             </div>
             <div class="br" style="--c: var(--pivot)">
-              <div class="when">above 7282 (Monday VAH)</div>
+              <div class="when">above 7226 (Tuesday VAH)</div>
               <div class="name">X · Above VAH</div>
-              <p>Monday's value is regained and the short gamma flips toward neutral. Sell only 7280–7290 or 7304–7314 rejections. Unlikely today: it would take a 90-point rally through the 7240.75 IB high.</p>
-              <div class="live">live: A (7285), B (7309)</div>
+              <p>Tuesday's value is rejected higher. Sell only a rejection at 7236–7244, Monday's VAL. If it gets accepted above 7241, Monday's value 7240–7282 is back in play.</p>
+              <div class="live">live: A (7240), B− long above 7241</div>
             </div>
           </div>
           <div class="followon">
             <span class="k" style="color:var(--long)">A → B</span>
-            <p>Back above 7167 after an A break: the buying tail holds again. Buy 7158–7168 retests for 7194 then 7220. Shorts wait for 7216–7244. <span class="tag" style="--c: var(--long)">B</span></p>
+            <p>Two 30-minute closes back above 7152 after a break: the auction failed below the put cluster. Buy 7150–7158 on a 5-minute close back inside, for 7180 and 7194. <span class="tag" style="--c: var(--long)">B</span></p>
             <span class="k" style="color:var(--pivot)">Any → change</span>
-            <p>Two 30-minute closes above 7284, Monday's late high (M-period top), with TLADe zero gamma 7283 and Tanuki HVL 7285: change under way. Half-size shorts only at 7304–7314. Buy 7244–7252 retests.</p>
+            <p>Two 30-minute closes above 7226, Tuesday's M-period high: change under way. Half-size shorts, only on a rejection at 7236–7244.</p>
             <span class="k" style="color:var(--pivot)">Any → off</span>
-            <p>Two 30-minute closes above 7314 (Monday's high): bear case off. Buy pullbacks to 7314–7322 for 7335 then 7371, the TLADe call wall and max pain.</p>
+            <p>Two 30-minute closes above 7241: stand aside on shorts. Buy 7242–7250 retests for 7260 (Monday's POC) and 7283 (zero gamma). The only sell above is a 7278–7288 zero-gamma rejection.</p>
           </div>
         </div>
       </section>
@@ -176,70 +173,47 @@ footer a { color: var(--info); }
       <section class="panel" aria-labelledby="setups-h">
         <div>
           <h2 id="setups-h">Setups</h2>
-          <p class="sub">Ranked by how many independent signals line up at each level. R = reward ÷ risk from the zone's middle. Every stop sits beyond the zone and at least 13 points from its middle. ATR is 250, so size down.</p>
+          <p class="sub">Ranked by how many independent signals line up at each level. R = reward ÷ risk from the zone's middle. Every stop sits beyond the zone and at least 13 points from its middle. RTH EM is about 192, so size down. PCE plus thin pre-holiday trade means half size.</p>
         </div>
         <div class="setups">
           <div class="setup" style="--c: var(--short)">
             <div class="grade">A<small>SHORT</small></div>
             <div>
-              <h3>7240 VAL / IB-high retest</h3>
-              <p class="why">Monday's VAL 7240, today's IB high 7240.75 (B's rejection), XposureFlow's CEX zero 7242 and gamma VWAP 7249, and TLADe's VBL / put wall 7251 just above. Second test of a level that already rejected. Sell the stall, not the first tick.</p>
-              <div class="nums"><span>Entry</span><span>Stop</span><span>Targets</span><span>R</span><b>7234–7244</b><b>7254</b><b>7220 · 7196 · 7171</b><b>1.3 / 2.9 / 4.5</b></div>
-            </div>
-          </div>
-          <div class="setup" style="--c: var(--short)">
-            <div class="grade">A<small>SHORT</small></div>
-            <div>
-              <h3>7144 range-extension break</h3>
-              <p class="why">Below today's low 7152.25 and the ON low 7144.75 sit XposureFlow's VEX and CEX zero lines (7147.5, 7143.25) and its 0DTE EM low 7140. Past Tanuki P2 7155 the put cluster is spent, and in negative gamma dealers sell into it. Take it only on a 5-minute close below 7144.</p>
-              <div class="nums"><span>Entry</span><span>Stop</span><span>Targets</span><span>R</span><b>7140–7148</b><b>7158</b><b>7121 · 7096 · 7071</b><b>1.6 / 3.4 / 5.2</b></div>
-            </div>
-          </div>
-          <div class="setup" style="--c: var(--short)">
-            <div class="grade">A<small>SHORT</small></div>
-            <div>
-              <h3>7285 zero gamma / HVL rejection (far)</h3>
-              <p class="why">TLADe zero gamma 7283, Tanuki HVL and pT 7285, Monday's VAH 7282 and late high 7284.25, XposureFlow GW3 7290. Was A+ this morning. Cut to A because it's about 90 points away and above the IB, so it needs a big rally first.</p>
-              <div class="nums"><span>Entry</span><span>Stop</span><span>Targets</span><span>R</span><b>7280–7290</b><b>7301</b><b>7260 · 7240 · 7220</b><b>1.6 / 2.8 / 4.1</b></div>
+              <h3>7240 Mon VAL / Tue high rejection</h3>
+              <p class="why">Monday's VAL 7240, Tuesday's IB and day high 7240.75 (B and G both stalled there), and TLADe's largest unloading strike at 7231 (−$134M). It sits below zero gamma and HVL. Sell a rally that stalls in the zone.</p>
+              <div class="nums"><span>Entry</span><span>Stop</span><span>Targets</span><span>R</span><b>7236–7244</b><b>7254</b><b>7221 · 7194 · 7172</b><b>1.4 / 3.3 / 4.9</b></div>
             </div>
           </div>
           <div class="setup" style="--c: var(--short)">
             <div class="grade">B<small>SHORT</small></div>
             <div>
-              <h3>7221 pivot short</h3>
-              <p class="why">XposureFlow GW1 7220 and VEX zero 7227.75, TLADe magnet 7221, Tanuki Ab2 7215 and Monday's tail top 7221. C topped at 7208, just under it. Four sources agree, but TLADe labels it a magnet, which means it attracts price rather than repelling it. Graded B for that reason.</p>
-              <div class="nums"><span>Entry</span><span>Stop</span><span>Targets</span><span>R</span><b>7216–7226</b><b>7234</b><b>7196 · 7175 · 7155</b><b>1.9 / 3.5 / 5.1</b></div>
+              <h3>7152 balance-low break</h3>
+              <p class="why">Tuesday's low and the bottom of the two-day balance. TLADe calls the floor eroding. Below it are Tuesday's ON low 7144.75, XposureFlow's gVWAP lower band 7112, then its CEX/VEX zero lines at 7091–7097 with Tanuki P1 7085 (weight −100) and the weekly EM low. Take it only on a retest from below.</p>
+              <div class="nums"><span>Entry</span><span>Stop</span><span>Targets</span><span>R</span><b>7144–7152</b><b>7162</b><b>7112 · 7091</b><b>2.6 / 4.1</b></div>
             </div>
           </div>
           <div class="setup" style="--c: var(--long)">
             <div class="grade">B<small>LONG</small></div>
             <div>
-              <h3>7163 put-cluster higher low (against the bias)</h3>
-              <p class="why">Tanuki P1 7165 (weight −100), P2 7155 and P3 7160, TLADe put wall 7171 ($373M), Monday's low 7167, and XposureFlow's volume VAL 7159. C, D and E all held 7154–7160. Price is below HVL, so buy only another higher low or a 5-minute close back above 7165 after a probe. A fourth test that fails turns this into the 7144 break.</p>
-              <div class="nums"><span>Entry</span><span>Stop</span><span>Targets</span><span>R</span><b>7158–7168</b><b>7149</b><b>7194 · 7220 · 7240</b><b>2.2 / 4.1 / 5.5</b></div>
+              <h3>7155 failed-break long</h3>
+              <p class="why">The strongest support cluster: TLADe put wall 7171 ($358M), XposureFlow GW2 7170, Tanuki P2 7155, pT 7160, Ab3 7165, P3 7175, plus Monday's low 7167 and Tuesday's 7152. Price is below HVL, so there are no first-touch longs. Wait for a break under 7152, then a 5-minute close back above 7155.</p>
+              <div class="nums"><span>Entry</span><span>Stop</span><span>Targets</span><span>R</span><b>7150–7158</b><b>7140</b><b>7180 · 7194 · 7221</b><b>1.9 / 2.9 / 4.8</b></div>
             </div>
           </div>
           <div class="setup" style="--c: var(--short)">
             <div class="grade">B<small>SHORT</small></div>
             <div>
-              <h3>7309 Monday-high rejection</h3>
-              <p class="why">Monday's high 7313.25 and selling tail, Tanuki C1 7315, and TLADe's largest call wall 7321 ($491M, VBH). A change-scenario short only, at half size.</p>
-              <div class="nums"><span>Entry</span><span>Stop</span><span>Targets</span><span>R</span><b>7304–7314</b><b>7324</b><b>7285 · 7260</b><b>1.6 / 3.3</b></div>
+              <h3>7283 zero-gamma rejection</h3>
+              <p class="why">TLADe zero gamma 7283, Monday's VAH 7282 and late high 7284, and Tanuki P5 7290. It sits above the invalidation line, so trade it only as a clear rejection after the bear case is off.</p>
+              <div class="nums"><span>Entry</span><span>Stop</span><span>Targets</span><span>R</span><b>7278–7288</b><b>7299</b><b>7260 · 7241</b><b>1.4 / 2.6</b></div>
             </div>
           </div>
           <div class="setup" style="--c: var(--long)">
             <div class="grade">B−<small>LONG</small></div>
             <div>
-              <h3>7145 failed-break long</h3>
-              <p class="why">The ON low and XposureFlow's zero lines. Valid only after a break under 7140 and a 5-minute close back above 7150. That would repeat A's failed auction below Monday's low.</p>
-              <div class="nums"><span>Entry</span><span>Stop</span><span>Targets</span><span>R</span><b>7140–7150</b><b>7131</b><b>7171 · 7196</b><b>1.9 / 3.6</b></div>
-            </div>
-          </div>
-          <div class="setup done" style="--c: var(--muted)">
-            <div class="grade">✓<small>PLAYED</small></div>
-            <div>
-              <h3>Played out today</h3>
-              <p class="why">The 10:31 7169 put-cluster long (7164–7174, stop 7150) filled in C and D. The D low of 7154.25 held above the stop, and E reached 7194.75, about a point short of T1 7196. It has been rebuilt as the 7163 higher-low long. Earlier: the 7243 VAL short filled in B and ran to 7169. The 7220 tail-top long was stopped in B. The 7185 failed-tail short has played out.</p>
+              <h3>7246 Mon VAL reclaim retest</h3>
+              <p class="why">Only after two 30-minute closes above 7241. Back inside Monday's value, the target is its POC 7260 (XposureFlow gVWAP 7259.5, TLADe put wall 7251), then zero gamma 7283. T1 pays less than 1R, so scale out at T2.</p>
+              <div class="nums"><span>Entry</span><span>Stop</span><span>Targets</span><span>R</span><b>7242–7250</b><b>7230</b><b>7260 · 7283</b><b>0.9 / 2.3</b></div>
             </div>
           </div>
         </div>
@@ -250,51 +224,50 @@ footer a { color: var(--info); }
   <section class="panel" aria-labelledby="src-h">
     <div>
       <h2 id="src-h">What each source says</h2>
-      <p class="sub">Read from the app's source strings. Tanuki, XposureFlow and the profile are as of 11:49 ET. <span class="warn" style="color:var(--pivot);font-weight:600">TLADe's data is from 10:30 ET, 79 minutes old: stale.</span> Nothing here was looked up separately.</p>
+      <p class="sub">Read from the app's source strings at 4:01 PM ET Tuesday. Nothing here was looked up separately.</p>
     </div>
-    <p class="agree">The sources agree on <b>7152–7180</b> as the floor: the Tanuki put cluster, TLADe's 7171 wall, Monday's low, XposureFlow's volume VAL 7159, and three held lows today. They also agree on <b>7215–7227</b> and <b>7240–7251</b> overhead. TLADe and Tanuki both put dealers short gamma below <b>7283–7285</b>. XposureFlow disagrees: spot is above its 7056 GEX flip, so it reads long gamma, though VEX is negative. Expect a wide range with fast moves when a level breaks.</p>
+    <p class="agree">The sources agree on <b>7155–7175</b> as the floor (TLADe, Tanuki, XposureFlow and both prior lows) and <b>7310–7325</b> as the call cap (TLADe $559M, XposureFlow GW1, Tanuki C1/C4/HVL). Spot 7216 sits between them, below zero gamma and HVL, so dealers are short gamma and moves extend. XposureFlow reads spot above all its nearby flips, but its 0DTE EM (±177) looks too wide for a pre-holiday day.</p>
     <div class="sources">
       <div class="src" style="--c: var(--gamma)">
         <h3>TLADe</h3>
-        <div class="asof warn">STALE: data Tue 10:30 ET · spot 7167.5 (spot mark refreshed 11:49 at 7168)</div>
+        <div class="asof warn">Updated Tue 13:00 ET: STALE (3 h old) · spot 7216 at 16:01</div>
         <dl>
-          <dt>Regime</dt><dd>Confirmed negative gamma, net GEX −2.59B, 115 pts below zero gamma 7283 at its spot</dd>
-          <dt>Delta</dt><dd>Negative, puts 94% · delta flip 7344</dd>
-          <dt>Vol</dt><dd>Compression · GVI 0.71 · VIX 27.3 · ATR 250 · EM 192 · RTH has used 46% of expected</dd>
-          <dt>Walls</dt><dd>7021 ($571M), 7321 C ($491M), 7371 C ($467M), 7171 ($373M), 7121 ($328M), 7071 ($227M), 7186 ($189M)</dd>
-          <dt>Flow</dt><dd>Boundaries tightening around the 7176 anchor: put loading at 7186 (+$97M) and 7171 (+$93M), unloading at 7181 (−$195M)</dd>
-          <dt>Greeks</dt><dd>Vanna: vol support · Charm: price pressure · Max pain 7371 · EM 7175–7366</dd>
-          <dt>Note</dt><dd class="warn">TLADe's 10:30 spot (7167.5) is about 26 pts below ES now (7193.5). Walls and flow are as of 10:30 and are used as given.</dd>
+          <dt>Regime</dt><dd>Confirmed negative gamma, net GEX −1.44B, 66 pts below zero gamma 7283</dd>
+          <dt>Delta</dt><dd>Negative, puts 89% · delta flip 7344</dd>
+          <dt>Vol</dt><dd>Compression · VIX 26.5 · RTH EM 192 · RTH realized 46% of expected</dd>
+          <dt>Walls</dt><dd>7371 C ($560M), 7321 C ($559M), 7171 P ($358M), 7411 P ($189M), 7386 P ($182M), 7251 P ($106M)</dd>
+          <dt>Flow</dt><dd>Cap reinforcing, floor eroding · anchor 7216 · 7231 unloading −$134M</dd>
+          <dt>Greeks</dt><dd>Vanna: vol support · charm: price pressure · magnet 7221</dd>
         </dl>
       </div>
       <div class="src" style="--c: var(--info)">
         <h3>XposureFlow</h3>
-        <div class="asof">11:49 ET · 0DTE book · OI Nov 23 · spot 7192.75</div>
+        <div class="asof">16:01 ET · Wed 0DTE book · OI from Nov 23</div>
         <dl>
-          <dt>Regime</dt><dd class="warn">GEX positive (flip 7056) · DEX negative · VEX negative between 7147.5 and 7227.75</dd>
-          <dt>Walls</dt><dd>#1 7220, #2 7300.25, #3 7290.25 · gamma VWAP 7249 (band 7132–7366)</dd>
-          <dt>Range</dt><dd>0DTE EM 7140–7374 · weekly 7085–7429</dd>
-          <dt>Profile</dt><dd>Volume VAH 7200, POC 7177.25, VAL 7159 (value has moved down since 10:31)</dd>
+          <dt>Walls</dt><dd>#1 7320.25, #2 7170, #3 7365.5 · gVWAP 7259.5 (band 7112–7407)</dd>
+          <dt>Zero</dt><dd>CEX 7091.5 · VEX 7097 below · VEX 7397 · CEX 7420 above</dd>
+          <dt>Range</dt><dd>Weekly EM 7085–7372 · Wed 0DTE EM 7052–7405</dd>
+          <dt>Note</dt><dd class="warn">0DTE IV 46.7% looks inflated (it carries the PCE print); use the weekly EM</dd>
         </dl>
       </div>
       <div class="src" style="--c: var(--pivot)">
         <h3>TanukiTrade</h3>
-        <div class="asof">11:49 snapshot · Nov 24 expiry (0 DTE) · spot 7189</div>
+        <div class="asof">Tue 15:59 snapshot · Nov 25 expiry · spot 7215.5</div>
         <dl>
-          <dt>Regime</dt><dd>Below HVL 7285 (= pT): negative gamma</dd>
-          <dt>Puts</dt><dd>P1 7165 (−100), P2 7155, P3 7160, P4 7180, P5 7175, P7 7190, P6 7115</dd>
-          <dt>Calls</dt><dd>C1 7315 (= cT, CV), C3 7295, C2 7365</dd>
-          <dt>Other</dt><dd>Ab1 7165 · Ab2 7215 · Ab3 7155 · D+ 7015 · PV 7115</dd>
+          <dt>Regime</dt><dd>Below HVL 7310: negative gamma, no first-touch support longs</dd>
+          <dt>Puts</dt><dd>P1 7085 (−100), P2 7155, P3 7175, P4 7215, P5 7290, P6 7190 · pT 7160</dd>
+          <dt>Calls</dt><dd>C1 7325 (89.9), C4 7315, C2 7360, C3 7365 · cT 7325</dd>
+          <dt>Other</dt><dd>Ab1 7315 · Ab2 7265 · Ab3 7165 · COI/CV 7315 · D+ 7015</dd>
         </dl>
       </div>
       <div class="src" style="--c: var(--long)">
         <h3>Market profile</h3>
-        <div class="asof">TradingView 30-min RTH · Mon Nov 23 + Tue A–E (E in progress) · 11:49 ET</div>
+        <div class="asof">TradingView 30-min RTH · Tue Nov 24 (complete)</div>
         <dl>
-          <dt>Mon</dt><dd>Normal day, 7167–7313.25 · VAH 7282 · POC 7260 · VAL 7240 · value higher · close 7257 mid-range</dd>
-          <dt>Tue</dt><dd>OTD up from below value · IB 7152.25–7240.75 (88.5) · no extension · RF −1 · D shape · VA 7160–7206, POC 7194 · value lower · C/D/E lows 7160/7154/7160 held</dd>
-          <dt>ON</dt><dd>7144.75–7298.25, balanced, 56% of TPOs below settle, last 7182.5 below VA, low under Monday's low</dd>
-          <dt>Week</dt><dd>Dalton's covering rally came Monday. Value is falling back today. A failure under 7152 would reopen the negative case (6 of the last 8 sessions had lower value).</dd>
+          <dt>Day</dt><dd>Normal · range 88.5 = IB · no range extension · RF −4 · D shape</dd>
+          <dt>Open</dt><dd>OTD up from 7182.75, below Mon VA but inside Mon range · ON was balanced 7145–7298</dd>
+          <dt>Value</dt><dd>VAH 7226 · POC 7194 · VAL 7180 · lower than Mon (7240–7282), no overlap</dd>
+          <dt>Ends</dt><dd>Minimal excess both ends (2-tick tails) · M squeeze 7184→7226 on heavy volume, close 7220</dd>
         </dl>
       </div>
     </div>
@@ -302,29 +275,29 @@ footer a { color: var(--info); }
 
   <section class="panel rules" aria-label="Rules">
     <div>
-      <h3>Right now</h3>
+      <h3>Before the open</h3>
       <ul>
-        <li>E at <b>7193.5</b> sits in the IB middle and on today's POC 7194. No trade until price reaches an edge.</li>
-        <li>Three held lows at 7154–7160 show responsive buying, but value is still lower and below Monday's VAL, so it is balance, not reversal.</li>
-        <li>With an 88.5-point IB, a Dell print tonight and PCE tomorrow, the IB will likely hold. Fade its edges and don't chase moves inside it.</li>
-        <li>Range extension needs two 30-minute closes outside <b>7152–7241</b>.</li>
+        <li>This run was before Wednesday's Globex session. A pre-open run should add overnight inventory; until then ONH/ONL on the chart are placeholders.</li>
+        <li>PCE at 8:30 and a thin pre-Thanksgiving tape. Dalton flagged both. Expect a fast first hour and size down.</li>
+        <li>Note where 9:30 opens: below <b>7152</b>, inside, or above <b>7226</b>. Tuesday closed at 7220, right at VAH.</li>
       </ul>
     </div>
     <div>
       <h3>During the session</h3>
       <ul>
         <li>Fast arrival: <b>14+ pts</b> in the 30 minutes before a zone means wait for a 5-minute close back inside it.</li>
-        <li>Below HVL 7285, no support longs on the first touch. The 7158–7168 long needs a higher low.</li>
-        <li>Skip the middle: <b>7178–7212</b> and <b>7253–7278</b>.</li>
-        <li>Two 30-minute closes above <b>7284</b>: cut short size. Above <b>7314</b>: stand aside on shorts.</li>
+        <li>IB under <b>45 pts</b>: trade smaller, expect rotation inside 7152–7241. Tuesday's IB was 88.5.</li>
+        <li>Below HVL 7310, no support longs on the first touch.</li>
+        <li>Skip the middle: <b>7180–7210</b> (Tuesday's POC area) and <b>7253–7275</b> (Monday's POC area).</li>
+        <li>Two 30-minute closes above <b>7226</b>: cut short size.</li>
       </ul>
     </div>
     <div>
       <h3>Volatility</h3>
       <ul>
-        <li>ATR 250 and an RTH EM of 192: 13-point stops are tight, so trade half size.</li>
-        <li>TLADe reads vol as compressing, but RTH has used only 46% of its expected range, so a break can still travel 50+ points.</li>
-        <li>No pin levels: this isn't a standard expiration day (the weekly expires Fri Nov 27, a half day).</li>
+        <li>Vol is compressing (TLADe RTH realized 46% of expected), but negative gamma means a break of the balance can run.</li>
+        <li>Two 30-minute closes above <b>7241</b>: stand aside on shorts.</li>
+        <li>Nov 25 options expire, but no strike shows a clear pin, so no pin levels. Weekly options expire Fri Nov 27, a half day; the market is closed Thursday.</li>
       </ul>
     </div>
   </section>
@@ -338,12 +311,12 @@ footer a { color: var(--info); }
       .then(()=>{this.textContent='Copied'; setTimeout(()=>this.textContent='Copy',1500)})"
       style="background:#3dff7a;color:#050c07;border:0;border-radius:4px;padding:6px 14px;font:inherit;font-weight:700;cursor:pointer">Copy</button>
   </div>
-  <pre id="vats-plan-text" style="margin:0;white-space:pre-wrap;word-break:break-all;user-select:all">D,2026-11-24;P,VAH,7282;P,VAL,7240;P,POC,7260;P,PLOW,7167;P,PIVOT,7240;P,CHANGE,7284;P,INVAL,7314;P,SETTLE,7257;P,ZG,7283;P,NARROWIB,45;P,FAST,14;P,BIAS,-1;P,ONH,7298.25;P,ONL,7144.75;P,ONPCT,56;L,TL call wall 7371 $560M / max pain 7371 / TL EMH 7366 / XF 0DTE EM high 7374 / TK C2 7365,7370,3;L,TL call wall 7321 $559M / TL VBH 7321 / TK C1 cT 7315 / Mon high 7313.25 (inval),7316,4;L,XF GW2 7300.25 / GW3 7290.25 / ON high 7298.25 / TK C3 7295,7296,2;L,TL zero gamma 7283 / TK HVL pT 7285 / Mon late high 7284.25 (change) / Mon VAH 7282,7283,4;L,Mon POC 7260 / settle 7257 / TK Ab2 CV 7265,7260,2;L,TL VBL put wall 7251 $106M / XF gVWAP 7249,7250,2;L,PIVOT Mon VAL 7240 / Tue IB high 7240.75 / G high 7238.25 / XF CEX zero 7242 / TL unload 7231,7240,4;L,TL magnet put wall 7221 / TL anchor 7216 / XF GW1 7220 / XF VEX zero 7227.75 / TK Ab1 7215,7220,4;L,Tue VAH 7212 / TK P7 7210 / XF vVAH 7210.5,7211,2;L,Tue POC 7194 / TK P4 7195 P3 7190 / Tue IB middle 7196.5,7194,3;L,TK P2 7180 P6 7175 / TL put wall 7171 $358M / XF vPOC 7177 / Mon low 7167 / TK P1 Ab3 7165,7170,4;L,Tue low 7152.25 / TK P5 7155 / TL 7161 supp / XF vVAL 7159 / Tue VAL 7160,7157,4;L,ON low 7144.75 / XF VEX 7147.5 CEX 7143.25 / XF 0DTE EM low 7140,7144,3;L,XF gVWAP lower band 7131.75 / TK PV 7115,7120,2;L,XF weekly EM low 7085,7085,1;W,7371,0.560;W,7321,0.559;W,7171,0.358;W,7411,0.189;W,7386,0.182;W,7251,0.106;W,7356,0.094;N,No-trade: Tue value middle,7178,7212;N,No-trade: Mon POC middle,7253,7278;S,7240 VAL/IB-high second test,S,7234,7244,7254,7220,7196,7171,A,C;S,7285 ZG/HVL rejection,S,7280,7290,7301,7260,7240,7220,A,CX;S,7246 VAL reclaim retest,L,7242,7250,7232,7260,7283,,B,C;S,7170 put-cluster higher low,L,7165,7175,7156,7196,7220,7240,B,BC;S,7309 Mon-high rejection,S,7304,7314,7324,7285,7260,,B,XW;S,7144 range-extension break,S,7140,7148,7158,7115,7085,,B,A;S,7145 failed-break long,L,7140,7150,7131,7171,7196,,B-,A;T,A,Below 7167 Mon low: the floor has held four times. Two 30m closes under 7152 open 7131 then 7115. Sell 7140-7148 breaks. Long only on a failed break;T,B,Back above 7167 after an A break: the tail holds again. Buy 7165-7175 retests for 7196 then 7220. Shorts wait for 7234-7244;T,C,Inside Mon range below VAL 7240. G rallied to 7238 and was sold. Sell 7234-7244 on a second test. Two 30m closes above 7241 flip to buying 7242-7250;T,X,Above 7282 VAH: Mon value regained. Sell only 7280-7290 or 7304-7314 rejections. Two 30m closes above 7314 open 7321 then 7371;T,W,Two 30m closes above 7284 (Mon late high): change under way. Half-size shorts only at 7304-7314. Buy 7242-7250 retests;T,I,Two 30m closes above 7314: bear case off. Buy pullbacks to 7314-7322 for 7335 then 7371;T,PRE,13:01: F and G rallied 7169 to 7238 and stalled under IB high 7240.75. H at 7224 on the 7220 magnet above Tue VA. Dell after close: size down</pre>
+  <pre id="vats-plan-text" style="margin:0;white-space:pre-wrap;word-break:break-all;user-select:all">D,2026-11-25;P,VAH,7226;P,VAL,7180;P,POC,7194;P,PLOW,7152.25;P,PIVOT,7221;P,CHANGE,7226;P,INVAL,7241;P,SETTLE,7220;P,ZG,7283;P,NARROWIB,45;P,FAST,14;P,BIAS,-1;P,ONH,7220;P,ONL,7220;P,ONPCT,50;L,TL call wall 7371 $560M / max pain 7371 / XF weekly EM high 7372 / TK C2 7360 C3 7365 / XF GW3 7365.5,7368,4;L,TL delta flip 7344,7344,1;L,TL call wall 7321 $559M / TL VBH 7321 / XF GW1 7320 / TK C1 7325 C4 Ab1 7315 / TK HVL 7310,7318,4;L,TL zero gamma 7283 / Mon VAH 7282 / Mon late high 7284 / TK P5 7290,7284,3;L,Mon POC 7260 / XF gVWAP 7259.5 / TK Ab2 7265 / TL put wall 7251 $106M,7258,3;L,INVAL Tue high 7240.75 / Mon VAL 7240 / TL unload 7231,7240,3;L,PIVOT TL magnet 7221 / TL anchor 7216 / TK P4 7215 / Tue VAH 7226 / close 7220,7221,4;L,Tue POC 7194 / TK P6 7190,7192,2;L,Tue VAL 7180,7180,1;L,TL put wall 7171 $358M / XF GW2 7170 / TK P3 7175 Ab3 7165 pT 7160 / Mon low 7167,7170,4;L,Tue low 7152.25 / TK P2 7155 / TL 7161 supp,7155,3;L,Tue ON low 7144.75,7145,1;L,XF gVWAP lower band 7112,7112,1;L,XF CEX 7091.5 VEX 7097 / TK P1 7085 / XF weekly EM low 7085,7090,3;W,7371,0.560;W,7321,0.559;W,7171,0.358;W,7411,0.189;W,7386,0.182;W,7251,0.106;W,7356,0.094;N,No-trade: Tue value middle,7180,7210;N,No-trade: Mon POC middle,7253,7275;S,7240 Mon VAL/Tue high rejection,S,7236,7244,7254,7221,7194,7172,A,CX;S,7152 balance-low break,S,7144,7152,7162,7112,7091,,B,A;S,7155 failed-break long,L,7150,7158,7140,7180,7194,7221,B,AB;S,7283 ZG rejection,S,7278,7288,7299,7260,7241,,B,I;S,7246 Mon VAL reclaim retest,L,7242,7250,7230,7260,7283,,B-,I;T,A,Below 7152 Tue low: the 2-day balance breaks and the put floor erodes. Sell 7144-7152 retests for 7112 then 7091. Long only on a failed break;T,B,Back above 7152 after an A break: failed auction at the put cluster. Buy 7150-7158 on a 5m close back inside for 7180 then 7194;T,C,Inside Tue value 7152-7226 below HVL. Skip the 7180-7210 middle. Sell 7236-7244 rejections. Long only a failed break of 7152;T,X,Above 7226 VAH: Tue value rejected higher. Sell only 7236-7244 rejections. Two 30m closes above 7241 put price back in Mon value;T,W,Two 30m closes above 7226 (Tue late high): change under way. Half-size shorts only at 7236-7244. Skip the 7180-7210 middle;T,I,Two 30m closes above 7241: bear case off. Buy 7242-7250 retests for 7260 then 7283. Sell only a 7278-7288 ZG rejection;T,PRE,16:01 run for Wed: ON not started. TL1 13:00 stale. Tue balanced 7152-7241 and closed 7220 at VAH. PCE 8:30 and pre-holiday: half size</pre>
   <div style="margin-top:8px;color:#1f9e4a">Paste into the Scenario Map indicator's "Plan string" input.</div>
 </section>
 <footer>
-    <div>Sources: the ES Level Updater's strings, run Tue Nov 24 11:49 AM ET: TL1 (TLADe terminal, 10:30 ET, stale), TK1 (TanukiTrade key levels, 11:49 snapshot, Nov 24 expiry), XF1 (XposureFlow summary, 11:49 ET, OI Nov 23), MP1 (TradingView 30-minute RTH profiles for Nov 23 and Nov 24 A–E, plus the last 30 sessions), and the weekly context for the week of Nov 23.</div>
-    <div>Updates the 10:31 plan on the chart. Grades count agreeing signals; they are not measured win rates. Educational analysis, not personalized financial advice.</div>
+    <div>Sources: the ES Level Updater's strings, read Tue Nov 24 4:01 PM ET: TL1 (TLADe terminal, updated 13:00 ET, stale), TK1 (TanukiTrade key levels, 15:59 snapshot, Nov 25 expiry), XF1 (XposureFlow summary, 16:01, OI Nov 23), MP1 (TradingView 30-minute RTH profiles for Nov 23 and Nov 24, plus the last 30 sessions), weekly context for the week of Nov 23.</div>
+    <div>Same logic as the ES Nov 24 Playbook. Grades count agreeing signals; they are not measured win rates. Educational analysis, not personalized financial advice.</div>
   </footer>
 </div>
 
@@ -351,7 +324,7 @@ footer a { color: var(--info); }
 (function () {
   const svg = document.getElementById('ladder');
   const NS = 'http://www.w3.org/2000/svg';
-  const TOP = 30, HI = 7380, LO = 7100, K = 2.95;
+  const TOP = 30, HI = 7400, LO = 7060, K = 2.5;
   const y = p => TOP + (HI - p) * K;
   const AX = 84, WALL_X = 92, WALL_MAX = 108, SET_X = 210, SET_W = 200, LINE_END = 416, LBL_X = 424;
   function el(tag, attrs, text) {
@@ -370,7 +343,7 @@ footer a { color: var(--info); }
   pl.setAttribute('style', 'stroke: var(--line-strong); stroke-width: 1.5');
   pat.appendChild(pl); defs.appendChild(pat);
 
-  for (let p = 7100; p <= HI; p += 20) {
+  for (let p = 7100; p <= 7400; p += 50) {
     el('line', { x1: AX - 4, x2: AX, y1: y(p), y2: y(p), style: 'stroke: var(--line-strong)' });
     el('text', { x: AX - 8, y: y(p) + 3.5, 'text-anchor': 'end', style: 'fill: var(--muted); font: 10px var(--mono)' }, p);
   }
@@ -378,25 +351,26 @@ footer a { color: var(--info); }
   [['TLADE WALLS', WALL_X], ['SETUP ZONES', SET_X], ['LEVELS', LBL_X]].forEach(([t, x]) =>
     el('text', { x, y: 14, style: 'fill: var(--muted); font: 600 9.5px var(--mono); letter-spacing: .08em' }, t));
 
-  [[7253, 7278], [7178, 7212]].forEach(([a, b]) => {
+  [[7253, 7275], [7180, 7210]].forEach(([a, b]) => {
     el('rect', { x: WALL_X, y: y(b), width: SET_X + SET_W - WALL_X, height: y(a) - y(b), fill: 'url(#hatch)', style: 'opacity: .55' });
     el('text', { x: SET_X + SET_W - 4, y: y((a + b) / 2) + 3, 'text-anchor': 'end', style: 'fill: var(--muted); font: 600 9px var(--mono); letter-spacing: .08em' }, 'NO-TRADE');
   });
 
   const levels = [
-    [7370, 'Call wall 7371 · max pain · C2 7365 · 0DTE EM high', 3],
-    [7316, 'Call wall 7321 · VBH · C1 7315 · Mon high 7313', 3],
-    [7296, 'XF GW2 7300 · GW3 7290 · ON high 7298 · C3', 2],
-    [7283, 'Zero gamma · HVL 7285 · Mon VAH 7282 · late high', 3],
-    [7259, 'Mon POC 7260 · settle 7257', 2],
-    [7242, 'Mon VAL 7240 · IB high · CEX zero · gVWAP 7249', 3],
-    [7221, 'XF GW1 7220 · magnet · Ab2 7215 · VEX zero', 3],
-    [7203, 'Wall 7201 · Tue VAH 7206 · XF vVAH 7200', 2],
-    [7192, 'Tue POC 7194 · P7 7190 · wall 7186 · IB mid', 3],
-    [7170, 'Wall 7171 · P1 7165 · P5 7175 · Mon low 7167', 3],
-    [7157, 'P2 7155 · P3 7160 · XF vVAL 7159 · C/D/E lows', 3],
-    [7144, 'ON low · XF VEX/CEX zero · 0DTE EM low', 3],
-    [7118, 'Wall 7121 · P6 7115 · PV 7115', 2]
+    [7368, 'Wall 7371 · max pain · weekly EM high · C2/C3 · GW3', 3],
+    [7344, 'TLADe delta flip', 1],
+    [7318, 'Wall 7321 · GW1 · C1 7325 · C4/Ab1 7315 · HVL 7310', 3],
+    [7284, 'Zero gamma 7283 · Mon VAH 7282 · P5 7290', 3],
+    [7258, 'Mon POC 7260 · gVWAP 7259.5 · Ab2 7265 · wall 7251', 3],
+    [7240, 'Tue high 7240.75 · Mon VAL · 7231 unload', 3],
+    [7221, 'Magnet 7221 · anchor 7216 · P4 · Tue VAH 7226', 3],
+    [7192, 'Tue POC 7194 · P6 7190', 2],
+    [7180, 'Tue VAL', 1],
+    [7170, 'Wall 7171 · GW2 · P3 · Ab3 · pT · Mon low 7167', 3],
+    [7155, 'Tue low 7152.25 · P2 7155', 3],
+    [7145, 'Tue ON low 7144.75', 1],
+    [7112, 'XF gVWAP lower band', 1],
+    [7090, 'XF CEX 7091.5 / VEX 7097 · P1 7085 · weekly EM low', 3]
   ];
   levels.forEach(([p, name, w]) => {
     el('line', { x1: AX, x2: LINE_END, y1: y(p), y2: y(p),
@@ -411,42 +385,45 @@ footer a { color: var(--info); }
     t.appendChild(a); t.appendChild(b);
   });
 
-  const walls = [[7371, .467], [7356, .080], [7321, .491], [7251, .101], [7201, .113], [7186, .189], [7171, .373], [7121, .328]];
-  walls.forEach(([p, w]) => el('rect', { x: WALL_X, y: y(p) - 3.5, width: WALL_MAX * w / .491, height: 7, rx: 2, style: 'fill: var(--gamma); opacity: .85' }));
+  const walls = [[7386, .182], [7371, .560], [7356, .094], [7321, .559], [7251, .106], [7171, .358]];
+  walls.forEach(([p, w]) => el('rect', { x: WALL_X, y: y(p) - 3.5, width: WALL_MAX * w / .560, height: 7, rx: 2, style: 'fill: var(--gamma); opacity: .85' }));
 
   const setups = [
-    [7304, 7314, 'short', .2, 'B ▼ 7309 Mon high · stop 7324'],
-    [7280, 7290, 'short', .3, 'A ▼ 7285 ZG/HVL · stop 7301'],
-    [7234, 7244, 'short', .38, 'A ▼ 7240 VAL retest · stop 7254'],
-    [7216, 7226, 'short', .22, 'B ▼ 7221 pivot · stop 7234'],
-    [7158, 7168, 'long', .25, 'B ▲ 7163 higher low · stop 7149'],
-    [7140, 7148, 'short', .35, 'A ▼ 7144 break · stop 7158 / B− ▲ reclaim']
+    [7278, 7288, 'short', .2, 'B ▼ 7283 ZG rejection · stop 7299'],
+    [7242, 7250, 'long', .18, 'B− ▲ 7246 reclaim · stop 7230'],
+    [7236, 7244, 'short', .38, 'A ▼ 7240 rejection · stop 7254'],
+    [7150, 7158, 'long', .26, 'B ▲ 7155 failed break · stop 7140'],
+    [7144, 7152, 'short', .26, 'B ▼ 7152 break · stop 7162']
   ];
-  setups.forEach(([lo, hi, dir, op, label]) => {
+  setups.forEach(([lo, hi, dir, op, label], i) => {
     const c = dir === 'long' ? 'var(--long)' : 'var(--short)';
-    el('rect', { x: SET_X, y: y(hi), width: SET_W, height: y(lo) - y(hi), rx: 2, style: `fill: ${c}; fill-opacity: ${op}; stroke: ${c}; stroke-width: 1` });
-    el('text', { x: SET_X + 6, y: y((lo + hi) / 2) + 3.5, style: `fill: ${c}; font: 600 10px var(--body)` }, label);
+    const half = (i === 1 || i === 3) ? 1 : 0;
+    const x = SET_X + (half ? SET_W / 2 : 0), w = (i === 1 || i === 2 || i === 3 || i === 4) ? SET_W / 2 : SET_W;
+    const xx = (i === 2 || i === 4) ? SET_X : x;
+    el('rect', { x: xx, y: y(hi), width: w, height: y(lo) - y(hi), rx: 2, style: `fill: ${c}; fill-opacity: ${op}; stroke: ${c}; stroke-width: 1` });
+    const ly = (i === 1 || i === 3) ? y(hi) - 4 : (i === 2 || i === 4) ? y(lo) + 11 : y((lo + hi) / 2) + 3.5;
+    el('text', { x: (i === 1 || i === 3) ? SET_X + SET_W / 2 + 2 : SET_X + 4, y: ly, style: `fill: ${c}; font: 600 9.5px var(--body)` }, label);
   });
 
-  function special(p, color, dash, pill, width) {
+  function special(p, color, dash, pill, width, dy) {
     el('line', { x1: AX, x2: LINE_END, y1: y(p), y2: y(p), style: `stroke: ${color}; stroke-width: ${width}` + (dash ? '; stroke-dasharray: 6 4' : '') });
-    el('rect', { x: 2, y: y(p) - 8, width: 74, height: 16, rx: 3, style: `fill: ${color}` });
-    el('text', { x: 39, y: y(p) + 3.5, 'text-anchor': 'middle', style: 'fill: var(--pill-ink); font: 600 9.5px var(--mono); letter-spacing: .03em' }, pill);
+    el('rect', { x: 2, y: y(p) - 8 + dy, width: 74, height: 16, rx: 3, style: `fill: ${color}` });
+    el('text', { x: 39, y: y(p) + 3.5 + dy, 'text-anchor': 'middle', style: 'fill: var(--pill-ink); font: 600 9.5px var(--mono); letter-spacing: .03em' }, pill);
   }
-  special(7314, 'var(--pivot)', true, 'INVAL 7314', 2);
-  special(7284, 'var(--pivot)', true, 'CHANGE 7284', 1.5);
-  special(7220, 'var(--pivot)', false, 'PIVOT 7220', 2);
+  special(7241, 'var(--pivot)', true, 'INVAL 7241', 2, -4);
+  special(7226, 'var(--pivot)', true, 'CHANGE 7226', 1.5, -6);
+  special(7221, 'var(--pivot)', false, 'PIVOT 7221', 2, 12);
 
-  const LP = 7193.5;
+  const LP = 7220;
   el('line', { x1: AX, x2: LINE_END, y1: y(LP), y2: y(LP), style: 'stroke: var(--info); stroke-width: 1.2; stroke-dasharray: 1 3' });
-  el('rect', { x: 2, y: y(LP) - 8, width: 74, height: 16, rx: 3, style: 'fill: var(--info)' });
-  el('text', { x: 39, y: y(LP) + 3.5, 'text-anchor': 'middle', style: 'fill: var(--pill-ink); font: 600 9.5px var(--mono)' }, 'LAST 7193.5');
+  el('rect', { x: 2, y: y(LP) + 22, width: 74, height: 16, rx: 3, style: 'fill: var(--info)' });
+  el('text', { x: 39, y: y(LP) + 33.5, 'text-anchor': 'middle', style: 'fill: var(--pill-ink); font: 600 9.5px var(--mono)' }, 'CLOSE 7220');
   el('path', { d: `M ${AX - 1} ${y(LP) - 5} L ${AX + 7} ${y(LP)} L ${AX - 1} ${y(LP) + 5} Z`, style: 'fill: var(--info)' });
 
-  const shade = el('rect', { x: AX + 1, y: y(7220), width: 4, height: y(LO) - y(7220), style: 'fill: var(--short); opacity: .55' });
-  el('rect', { x: AX + 1, y: y(7284), width: 4, height: y(7220) - y(7284), style: 'fill: var(--short); opacity: .25' });
-  el('rect', { x: AX + 1, y: y(7314), width: 4, height: y(7284) - y(7314), style: 'fill: var(--pivot); opacity: .45' });
-  el('rect', { x: AX + 1, y: TOP - 10, width: 4, height: y(7314) - TOP + 10, style: 'fill: var(--long); opacity: .45' });
+  const shade = el('rect', { x: AX + 1, y: y(7221), width: 4, height: y(LO) - y(7221), style: 'fill: var(--short); opacity: .55' });
+  el('rect', { x: AX + 1, y: y(7226), width: 4, height: y(7221) - y(7226), style: 'fill: var(--short); opacity: .25' });
+  el('rect', { x: AX + 1, y: y(7241), width: 4, height: y(7226) - y(7241), style: 'fill: var(--pivot); opacity: .45' });
+  el('rect', { x: AX + 1, y: TOP - 10, width: 4, height: y(7241) - TOP + 10, style: 'fill: var(--long); opacity: .45' });
   svg.insertBefore(shade, svg.children[1]);
 })();
 </script>
